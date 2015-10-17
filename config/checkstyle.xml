@@ -12,6 +12,11 @@
       <property name="commentFormat" value=".+"/>
     </module>
 
+    <!-- https://source.android.com/source/code-style.html#dont-catch-generic-exception -->
+    <module name="IllegalCatch">
+      <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable"/>
+    </module>
+
     <module name="FileContentsHolder"/> <!-- Required by comment suppression filters -->
 
   </module>
