@@ -7,6 +7,11 @@
 
   <module name="TreeWalker">
 
+    <!-- https://source.android.com/source/code-style.html#dont-ignore-exceptions -->
+    <module name="EmptyCatchBlockCheck">
+      <property name="commentFormat" value=".+"/>
+    </module>
+
     <module name="FileContentsHolder"/> <!-- Required by comment suppression filters -->
 
   </module>
