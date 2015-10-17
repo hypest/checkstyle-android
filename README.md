@@ -1,11 +1,28 @@
 # checkstyle-android
 
-The [gradle checkstyle](https://docs.gradle.org/current/userguide/checkstyle_plugin.html) configuration that most closely matches the [Android Code Style Guidelines for Contributors](https://source.android.com/source/code-style.html).
+A [gradle checkstyle](https://docs.gradle.org/current/userguide/checkstyle_plugin.html) configuration that most closely matches the [Android Code Style Guidelines for Contributors](https://source.android.com/source/code-style.html).
 
-## Getting Started
+## Usage
 
-* add this as a git submodule in your repo root
+Add this repo as a git submodule in your repo root
+```
+git submodule add git@github.com:hypest/checkstyle-android.git
+```
+Add it in your project's `build.gradle` like this:
+```
+apply from: 'checkstyle-android/checkstyle.gradle
+```
+You can now run the checks at the command line:
+```
+./gradlew checkstyle
+```
+Xml and html reports will be created in `<project build dir>/reports/checkstyle/`
+You may opt to have the build fail if checkstyle reports issues. You can enable that by adding to build.gradle:
+```
+preBuild.dependsOn('checkstyle')
+```
 
+Alternatively, you can just grab the rules file and use it with your own checkstyle setup.
 ## Prerequisities
 
 Things you will need:

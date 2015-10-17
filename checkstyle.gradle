@@ -1,0 +1,40 @@
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion = "6.5"
+}
+
+task checkstyle (type: Checkstyle) {
+    description 'Runs Checkstyle inspection against Android sourcesets.'
+    group = 'Code Quality'
+
+    ignoreFailures = false
+    showViolations = false
+    source 'src/main', 'src/release', 'src/androidTest/java'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    reports {
+        xml.destination "$project.buildDir/reports/checkstyle/checkstyle-report.xml"
+    }
+    classpath = files()
+    configFile = file("checkstyle-android/config/checkstyle.xml")
+
+    configProperties.lineWidth = 120
+}
+
+task checkstyleReport << {
+    if (file("$buildDir/reports/checkstyle/checkstyle-report.xml").exists()) {
+        ant.xslt(in: "$project.buildDir/reports/checkstyle/checkstyle-report.xml",
+                style:"checkstyle-android/config/checkstyle-noframes-sorted.xsl",
+                out:"$project.buildDir/reports/checkstyle/checkstyle-report.html"
+        )
+    }
+}
+
+gradle.taskGraph.afterTask {Task task, TaskState state ->
+    if (task.name in ['checkstyle']) {
+        checkstyleReport.execute()
+    }
+}
