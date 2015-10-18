@@ -17,6 +17,9 @@
       <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable"/>
     </module>
 
+    <!-- https://source.android.com/source/code-style.html#dont-use-finalizers -->
+    <module name="NoFinalizer"/>
+
     <module name="FileContentsHolder"/> <!-- Required by comment suppression filters -->
 
   </module>
