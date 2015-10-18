@@ -31,6 +31,36 @@
       <property name="lineWrappingIndentation" value="8"/>
     </module>
 
+    <!--https://source.android.com/source/code-style.html#follow-field-naming-conventions -->
+    <module name="MemberName">
+      <!-- non-public members should start with an 'm' -->
+      <property name="format" value="^m[A-Z][a-zA-Z0-9]*$"/>
+      <property name="applyToPublic" value="false"></property>
+      <property name="applyToProtected" value="true"></property>
+      <property name="applyToPrivate" value="true"></property>
+      <property name="applyToPackage" value="true"></property>
+    </module>
+
+    <!--https://source.android.com/source/code-style.html#follow-field-naming-conventions -->
+    <module name="StaticVariableName">
+      <!-- static members should start with an 's' -->
+      <property name="format" value="^s[A-Z][a-zA-Z0-9]*$"/>
+      <property name="applyToPublic" value="false"></property>
+    </module>
+
+    <!--https://source.android.com/source/code-style.html#follow-field-naming-conventions -->
+    <module name="MemberName">
+      <!-- public members should not start with an 'm' -->
+      <property name="format" value="^(?:[a-l|n-z][a-zA-Z0-9]*)$|^(?:m[a-z]+[a-zA-Z0-9]*)$"/>
+      <property name="applyToPublic" value="true"></property>
+      <property name="applyToProtected" value="false"></property>
+      <property name="applyToPrivate" value="false"></property>
+      <property name="applyToPackage" value="false"></property>
+    </module>
+
+    <!--https://source.android.com/source/code-style.html#follow-field-naming-conventions -->
+    <module name="ConstantName"/>
+
     <module name="FileContentsHolder"/> <!-- Required by comment suppression filters -->
 
   </module>
