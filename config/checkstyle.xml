@@ -20,6 +20,11 @@
     <!-- https://source.android.com/source/code-style.html#dont-use-finalizers -->
     <module name="NoFinalizer"/>
 
+    <!-- https://source.android.com/source/code-style.html#fully-qualify-imports -->
+    <module name="AvoidStarImport">
+      <property name="excludes" value="java.io,java.util,junit.framework"/>
+    </module>
+
     <module name="FileContentsHolder"/> <!-- Required by comment suppression filters -->
 
   </module>
