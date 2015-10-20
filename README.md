@@ -2,6 +2,8 @@
 
 A [gradle checkstyle](https://docs.gradle.org/current/userguide/checkstyle_plugin.html) configuration that most closely matches the [Android Code Style Guidelines for Contributors](https://source.android.com/source/code-style.html). Many Android projects chose to follow those guidelines and this checkstyle configuration helps enforce them on your code.
 
+This is still Work-In-Progress! Only a few rules have been implemented so far. Check the #Contributing section below on how to contrbute ;)
+
 ## Usage
 
 You can just grab [the rules file](config/checkstyle.xml) and use it with your own checkstyle setup or you can add this repo as a git submodule:
