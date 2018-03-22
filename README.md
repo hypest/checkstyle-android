@@ -12,7 +12,7 @@ git submodule add git@github.com:hypest/checkstyle-android.git
 ```
 Add it in your project's `build.gradle` like this:
 ```
-apply from: 'checkstyle-android/checkstyle.gradle
+apply from: 'checkstyle-android/checkstyle.gradle'
 ```
 You can now run the checks at the command line:
 ```
