@@ -16,7 +16,7 @@ task checkstyle (type: Checkstyle) {
     exclude '**/R.java'
     exclude '**/BuildConfig.java'
     reports {
-        xml.destination "$project.buildDir/reports/checkstyle/checkstyle-report.xml"
+        xml.destination file("$project.buildDir/reports/checkstyle/checkstyle-report.xml")
     }
     classpath = files()
     configFile = file("checkstyle-android/config/checkstyle.xml")
@@ -24,7 +24,7 @@ task checkstyle (type: Checkstyle) {
     configProperties.lineWidth = 120
 }
 
-task checkstyleReport << {
+task checkstyleReport doLast {
     if (file("$buildDir/reports/checkstyle/checkstyle-report.xml").exists()) {
         ant.xslt(in: "$project.buildDir/reports/checkstyle/checkstyle-report.xml",
                 style:"checkstyle-android/config/checkstyle-noframes-sorted.xsl",
